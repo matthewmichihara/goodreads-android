@@ -41,16 +41,6 @@ public class RecentUpdatesController {
                     consumer.sign(connection);
                     connection.connect();
 
-                    //read the result from the server
-//                    BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-//                    StringBuilder sb = new StringBuilder();
-//                    String line;
-//                    while ((line = rd.readLine()) != null) {
-//                        sb.append(line + '\n');
-//                    }
-
-//                    String xml = sb.toString();
-
                     List<String> updates = new ArrayList<String>();
 
                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -70,11 +60,9 @@ public class RecentUpdatesController {
                         }
                     }
 
-                    Timber.d("ASDF calling observer.onNext with " + updates.size() + " updates");
                     observer.onNext(updates);
                     observer.onCompleted();
                 } catch (Exception e) {
-                    Timber.e("ASDF Something went wrong", e);
                     observer.onError(e);
                 }
 
@@ -84,15 +72,16 @@ public class RecentUpdatesController {
 
         Observer<List<String>> recentUpdatesObserver = new Observer<List<String>>() {
             @Override public void onNext(List<String> updates) {
+                Timber.d("onNext called");
                 recentUpdatesFragment.displayUpdates(updates);
             }
 
             @Override public void onCompleted() {
-
+                Timber.d("onComplete called");
             }
 
             @Override public void onError(Throwable throwable) {
-
+                Timber.e("onError called", throwable);
             }
         };
 
