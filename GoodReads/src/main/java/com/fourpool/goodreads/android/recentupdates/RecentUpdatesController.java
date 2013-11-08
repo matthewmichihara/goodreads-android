@@ -25,9 +25,13 @@ import rx.subscriptions.Subscriptions;
 import timber.log.Timber;
 
 public class RecentUpdatesController {
-    @Inject SessionStore sessionStore;
+    private final SessionStore sessionStore;
 
     private RecentUpdatesFragment recentUpdatesFragment;
+
+    @Inject RecentUpdatesController(SessionStore sessionStore) {
+        this.sessionStore = sessionStore;
+    }
 
     public void onCreateView(final RecentUpdatesFragment recentUpdatesFragment) {
         Observable recentUpdatesObservable = Observable.create(new Observable.OnSubscribeFunc() {

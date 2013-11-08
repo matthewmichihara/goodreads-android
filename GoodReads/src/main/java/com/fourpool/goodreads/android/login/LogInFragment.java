@@ -27,7 +27,7 @@ public class LogInFragment extends Fragment implements LogInDisplay {
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        controller.onCreate(this);
+        controller.onCreate();
     }
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,12 +44,12 @@ public class LogInFragment extends Fragment implements LogInDisplay {
 
     @Override public void onStop() {
         super.onStop();
-        controller.onStop(this);
+        controller.onStop();
     }
 
     @Override public void onDestroy() {
         super.onDestroy();
-        controller.onDestroy(this);
+        controller.onDestroy();
     }
 
     @Override public void inProgress() {

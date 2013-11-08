@@ -20,7 +20,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 18
         testPackageName "com.fourpool.goodreads.android.test"
-        testInstrumentationRunner "com.fourpool.goodreads.android.test.Runner"
+        testInstrumentationRunner "com.fourpool.goodreads.android.test.TestRunner"
     }
 }
 

@@ -8,7 +8,7 @@ import com.fourpool.goodreads.android.login.LogInControllerTest;
 
 import junit.framework.TestSuite;
 
-public class Runner extends InstrumentationTestRunner {
+public class TestRunner extends InstrumentationTestRunner {
     @Override
     public void onCreate(Bundle arguments) {
         super.onCreate(arguments);
@@ -26,6 +26,6 @@ public class Runner extends InstrumentationTestRunner {
 
     @Override
     public ClassLoader getLoader() {
-        return Runner.class.getClassLoader();
+        return TestRunner.class.getClassLoader();
     }
 }

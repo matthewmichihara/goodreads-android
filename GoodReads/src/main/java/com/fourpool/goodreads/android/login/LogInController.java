@@ -49,7 +49,7 @@ public class LogInController {
         this.bus = bus;
     }
 
-    public void onCreate(LogInDisplay logInDisplay) {
+    public void onCreate() {
         bus.register(this);
     }
 
@@ -57,11 +57,11 @@ public class LogInController {
         this.logInDisplay = logInDisplay;
     }
 
-    public void onStop(LogInDisplay logInDisplay) {
+    public void onStop() {
         this.logInDisplay = null;
     }
 
-    public void onDestroy(LogInDisplay logInDisplay) {
+    public void onDestroy() {
         bus.unregister(this);
     }
 
@@ -87,8 +87,9 @@ public class LogInController {
             @Override public void onNext(String url) {
                 Timber.d("onNext called with %s", url);
 
-                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                context.startActivity(myIntent);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
 
             @Override public void onCompleted() {
@@ -96,7 +97,7 @@ public class LogInController {
             }
 
             @Override public void onError(Throwable throwable) {
-                Timber.d("onError called", throwable);
+                Timber.e(throwable, "onError called");
             }
         };
 

@@ -3,7 +3,6 @@ package com.fourpool.goodreads.android.recentupdates;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +10,7 @@ import android.widget.TextView;
 
 import com.fourpool.goodreads.android.GoodReadsApplication;
 import com.fourpool.goodreads.android.R;
-import com.fourpool.goodreads.android.recentupdates.RecentUpdatesController;
-import com.fourpool.goodreads.android.model.SessionStore;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -26,8 +18,7 @@ import javax.inject.Inject;
 import butterknife.InjectView;
 import butterknife.Views;
 
-public class RecentUpdatesFragment extends Fragment {
-    @Inject SessionStore sessionStore;
+public class RecentUpdatesFragment extends Fragment implements RecentUpdatesDisplay {
     @Inject RecentUpdatesController recentUpdatesController;
 
     @InjectView(R.id.example) TextView exampleText;
@@ -47,31 +38,12 @@ public class RecentUpdatesFragment extends Fragment {
         return view;
     }
 
-    public void displayUpdates(List<String> updates) {
+    @Override public void displayUpdates(List<String> updates) {
         String s = "";
         for (String update : updates) {
             s += update + " ";
         }
 
         exampleText.setText(s);
-    }
-
-    private void saveStringToFile(String string) {
-        File file = new File(Environment.getExternalStorageDirectory(), "example.xml");
-        OutputStream os = null;
-        try {
-            os = new FileOutputStream(file);
-            os.write(string.getBytes());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                os.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

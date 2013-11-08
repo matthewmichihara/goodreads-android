@@ -27,7 +27,6 @@ public class LogInControllerTest extends AndroidTestCase {
 
     public void testSomething() {
         doNothing().when(displayMock).inProgress();
-
         controller.onStart(displayMock);
         controller.dummyMethod();
         verify(displayMock).inProgress();
