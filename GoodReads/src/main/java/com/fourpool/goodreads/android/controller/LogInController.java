@@ -6,9 +6,9 @@ import android.net.Uri;
 
 import com.fourpool.goodreads.android.event.OAuthVerifierFetchedEvent;
 import com.fourpool.goodreads.android.event.SessionCreatedEvent;
+import com.fourpool.goodreads.android.ui.LogInFragment;
 import com.fourpool.goodreads.android.model.Session;
 import com.fourpool.goodreads.android.model.SessionStore;
-import com.fourpool.goodreads.android.ui.LogInFragment;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
