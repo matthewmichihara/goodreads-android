@@ -1,4 +1,4 @@
-package com.fourpool.goodreads.android.controller;
+package com.fourpool.goodreads.android.login;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.net.Uri;
 
 import com.fourpool.goodreads.android.event.OAuthVerifierFetchedEvent;
 import com.fourpool.goodreads.android.event.SessionCreatedEvent;
-import com.fourpool.goodreads.android.ui.LogInFragment;
 import com.fourpool.goodreads.android.model.Session;
 import com.fourpool.goodreads.android.model.SessionStore;
 import com.squareup.otto.Bus;
@@ -30,9 +29,9 @@ import timber.log.Timber;
 import static com.fourpool.goodreads.android.Constants.ACCESS_URL;
 import static com.fourpool.goodreads.android.Constants.AUTHORIZE_URL;
 import static com.fourpool.goodreads.android.Constants.CALLBACK_URL;
+import static com.fourpool.goodreads.android.Constants.REQUEST_URL;
 import static com.fourpool.goodreads.android.SecretConstants.CONSUMER_KEY;
 import static com.fourpool.goodreads.android.SecretConstants.CONSUMER_SECRET;
-import static com.fourpool.goodreads.android.Constants.REQUEST_URL;
 
 public class LogInController {
     private final OAuthProvider provider = new DefaultOAuthProvider(REQUEST_URL, ACCESS_URL, AUTHORIZE_URL);
@@ -42,7 +41,7 @@ public class LogInController {
     private final SessionStore sessionStore;
     private final Bus bus;
 
-    private LogInFragment logInFragment;
+    private LogInDisplay logInDisplay;
 
     @Inject public LogInController(@Named("Application") Context context, SessionStore sessionStore, Bus bus) {
         this.context = context;
@@ -50,19 +49,19 @@ public class LogInController {
         this.bus = bus;
     }
 
-    public void onCreate(LogInFragment logInFragment) {
+    public void onCreate(LogInDisplay logInDisplay) {
         bus.register(this);
     }
 
-    public void onStart(LogInFragment logInFragment) {
-        this.logInFragment = logInFragment;
+    public void onStart(LogInDisplay logInDisplay) {
+        this.logInDisplay = logInDisplay;
     }
 
-    public void onStop(LogInFragment logInFragment) {
-        this.logInFragment = null;
+    public void onStop(LogInDisplay logInDisplay) {
+        this.logInDisplay = null;
     }
 
-    public void onDestroy(LogInFragment logInFragment) {
+    public void onDestroy(LogInDisplay logInDisplay) {
         bus.unregister(this);
     }
 
@@ -89,7 +88,7 @@ public class LogInController {
                 Timber.d("onNext called with %s", url);
 
                 Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                logInFragment.getActivity().startActivity(myIntent);
+                context.startActivity(myIntent);
             }
 
             @Override public void onCompleted() {
@@ -150,5 +149,9 @@ public class LogInController {
         };
 
         sessionObservable.subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(sessionObserver);
+    }
+
+    public void dummyMethod() {
+        logInDisplay.inProgress();
     }
 }

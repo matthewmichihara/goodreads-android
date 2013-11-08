@@ -1,4 +1,4 @@
-package com.fourpool.goodreads.android.observable;
+package com.fourpool.goodreads.android.recentupdates;
 
 import rx.Observable;
 

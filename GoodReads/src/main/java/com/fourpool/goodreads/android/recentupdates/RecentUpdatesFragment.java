@@ -1,4 +1,4 @@
-package com.fourpool.goodreads.android.ui;
+package com.fourpool.goodreads.android.recentupdates;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.fourpool.goodreads.android.GoodReadsApplication;
 import com.fourpool.goodreads.android.R;
-import com.fourpool.goodreads.android.controller.RecentUpdatesController;
+import com.fourpool.goodreads.android.recentupdates.RecentUpdatesController;
 import com.fourpool.goodreads.android.model.SessionStore;
 
 import java.io.File;

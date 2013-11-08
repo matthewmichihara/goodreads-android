@@ -19,6 +19,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 18
+        testPackageName "com.fourpool.goodreads.android.test"
+        testInstrumentationRunner "com.fourpool.goodreads.android.test.Runner"
     }
 }
 
@@ -33,4 +35,13 @@ dependencies {
     compile 'com.squareup:otto:1.3.4'
     compile 'com.netflix.rxjava:rxjava-android:0.14.6'
 
+    instrumentTestCompile 'org.mockito:mockito-all:1.9.5'
+    instrumentTestCompile 'com.google.dexmaker:dexmaker:1.0'
+    instrumentTestCompile('com.google.dexmaker:dexmaker-mockito:1.0') {
+        // Shit breaks without this.
+        // See http://forums.gradle.org/gradle/topics/how_to_exclude_transitive_dependency
+        exclude group: 'org.hamcrest', module: 'hamcrest-core'
+        exclude group: 'org.objenesis', module: 'objenesis'
+        exclude group: 'org.mockito', module: 'mockito-core'
+    }
 }

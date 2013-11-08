@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.fourpool.goodreads.android.ui.LogInFragment;
-import com.fourpool.goodreads.android.ui.MainActivity;
-import com.fourpool.goodreads.android.ui.RecentUpdatesFragment;
+import com.fourpool.goodreads.android.login.LogInFragment;
+import com.fourpool.goodreads.android.recentupdates.RecentUpdatesFragment;
 import com.squareup.otto.Bus;
 
 import javax.inject.Named;

@@ -1,4 +1,4 @@
-package com.fourpool.goodreads.android.ui;
+package com.fourpool.goodreads.android;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -10,6 +10,7 @@ import com.fourpool.goodreads.android.GoodReadsApplication;
 import com.fourpool.goodreads.android.R;
 import com.fourpool.goodreads.android.event.OAuthVerifierFetchedEvent;
 import com.fourpool.goodreads.android.event.SessionCreatedEvent;
+import com.fourpool.goodreads.android.recentupdates.RecentUpdatesFragment;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 

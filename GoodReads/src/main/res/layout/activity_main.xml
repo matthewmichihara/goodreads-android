@@ -10,6 +10,6 @@
     <fragment android:id="@+id/navigation_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.fourpool.goodreads.android.ui.LogInFragment" />
+        android:name="com.fourpool.goodreads.android.login.LogInFragment" />
 
 </android.support.v4.widget.DrawerLayout>

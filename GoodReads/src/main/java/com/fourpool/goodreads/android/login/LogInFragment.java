@@ -1,4 +1,4 @@
-package com.fourpool.goodreads.android.ui;
+package com.fourpool.goodreads.android.login;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -10,14 +10,13 @@ import android.widget.Button;
 
 import com.fourpool.goodreads.android.GoodReadsApplication;
 import com.fourpool.goodreads.android.R;
-import com.fourpool.goodreads.android.controller.LogInController;
 
 import javax.inject.Inject;
 
 import butterknife.OnClick;
 import butterknife.Views;
 
-public class LogInFragment extends Fragment {
+public class LogInFragment extends Fragment implements LogInDisplay {
     @Inject LogInController controller;
 
     @Override public void onAttach(Activity activity) {
@@ -51,6 +50,10 @@ public class LogInFragment extends Fragment {
     @Override public void onDestroy() {
         super.onDestroy();
         controller.onDestroy(this);
+    }
+
+    @Override public void inProgress() {
+        // Show a spinner or something.
     }
 
     @OnClick(R.id.log_in) void onLogInButtonClicked(Button button) {

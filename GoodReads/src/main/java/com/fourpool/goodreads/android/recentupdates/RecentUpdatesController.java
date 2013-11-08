@@ -1,7 +1,6 @@
-package com.fourpool.goodreads.android.controller;
+package com.fourpool.goodreads.android.recentupdates;
 
 import com.fourpool.goodreads.android.model.SessionStore;
-import com.fourpool.goodreads.android.ui.RecentUpdatesFragment;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
