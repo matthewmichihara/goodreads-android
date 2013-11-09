@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import com.fourpool.goodreads.android.GoodReadsApplication;
 import com.fourpool.goodreads.android.R;
+import com.fourpool.goodreads.android.model.Update;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ import butterknife.Views;
 public class RecentUpdatesFragment extends Fragment implements RecentUpdatesDisplay {
     @Inject RecentUpdatesController recentUpdatesController;
 
-    @InjectView(R.id.example) TextView exampleText;
+    @InjectView(R.id.recent_update_list) ListView recentUpdateList;
 
     @Override public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -38,12 +39,7 @@ public class RecentUpdatesFragment extends Fragment implements RecentUpdatesDisp
         return view;
     }
 
-    @Override public void displayUpdates(List<String> updates) {
-        String s = "";
-        for (String update : updates) {
-            s += update + " ";
-        }
-
-        exampleText.setText(s);
+    @Override public void displayUpdates(List<Update> updates) {
+        recentUpdateList.setAdapter(new RecentUpdatesAdapter(getActivity(), updates));
     }
 }

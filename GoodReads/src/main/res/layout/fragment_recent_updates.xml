@@ -5,8 +5,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/example"
+    <ListView
+            android:id="@+id/recent_update_list"
             android:layout_height="match_parent"
             android:layout_width="match_parent"/>
 </LinearLayout>
