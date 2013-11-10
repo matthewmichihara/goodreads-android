@@ -19,27 +19,54 @@ import butterknife.InjectView;
 import butterknife.Views;
 
 public class RecentUpdatesAdapter extends ArrayAdapter<Update> {
+    private static final int TYPE_READ_STATUS = 0;
+    private static final int TYPE_REVIEW = 1;
+
     public RecentUpdatesAdapter(Context context, List<Update> updates) {
-        super(context, R.layout.list_item_update, updates);
+        super(context, R.layout.list_item_update_read_status, updates);
     }
 
     @Override public View getView(int position, View convertView, ViewGroup parent) {
+        Update update = getItem(position);
+
         ViewHolder holder;
         if (convertView != null) {
             holder = (ViewHolder) convertView.getTag();
         } else {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_update, parent, false);
+            switch (getItemViewType(position)) {
+                case TYPE_READ_STATUS:
+                    convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_update_read_status, parent, false);
+                    break;
+                case TYPE_REVIEW:
+                    convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_update_read_status, parent, false);
+                    break;
+            }
+
             holder = new ViewHolder(convertView);
-            holder.actorImage = (ImageView) convertView.findViewById(R.id.actor_image);
             convertView.setTag(holder);
         }
 
-        Update update = getItem(position);
         Actor actor = update.getActor();
         Picasso.with(getContext()).load(actor.getImageUrl()).into(holder.actorImage);
         holder.actorName.setText(actor.getName());
 
         return convertView;
+    }
+
+    @Override public int getItemViewType(int position) {
+        Update update = getItem(position);
+
+        if (update.getType().equals("readstatus")) {
+            return TYPE_READ_STATUS;
+        } else if (update.getType().equals("review")) {
+            return TYPE_REVIEW;
+        } else {
+            throw new RuntimeException("Unknown update type");
+        }
+    }
+
+    @Override public int getViewTypeCount() {
+        return 2;
     }
 
     static class ViewHolder {

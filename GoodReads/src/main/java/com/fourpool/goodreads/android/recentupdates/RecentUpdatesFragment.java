@@ -18,6 +18,7 @@ import javax.inject.Inject;
 
 import butterknife.InjectView;
 import butterknife.Views;
+import timber.log.Timber;
 
 public class RecentUpdatesFragment extends Fragment implements RecentUpdatesDisplay {
     @Inject RecentUpdatesController recentUpdatesController;
