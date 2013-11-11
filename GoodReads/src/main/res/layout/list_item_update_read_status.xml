@@ -8,14 +8,57 @@
 
     <ImageView
             android:id="@+id/actor_image"
-            tools:src="@drawable/ic_launcher"
+            tools:src="@drawable/sample_actor_thumbnail"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
 
-    <TextView
-            android:id="@+id/actor_name"
-            tools:text="Matt"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
+        <TextView
+                android:id="@+id/actor_name"
+                tools:text="Matt wants to read"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+
+        <TextView
+                android:id="@+id/action_date"
+                tools:text="about 10 hours ago"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+            <ImageView
+                    android:id="@+id/book_image"
+                    tools:src="@drawable/sample_book_thumbnail"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        tools:text="A Hitchhiker's Guide to the Galaxy"/>
+
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        tools:text="by Douglas Adams"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

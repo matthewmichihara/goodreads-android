@@ -5,6 +5,7 @@ import android.test.InstrumentationTestRunner;
 import android.test.InstrumentationTestSuite;
 
 import com.fourpool.goodreads.android.login.LogInControllerTest;
+import com.fourpool.goodreads.android.recentupdates.RecentUpdatesParserTest;
 
 import junit.framework.TestSuite;
 
@@ -21,6 +22,7 @@ public class TestRunner extends InstrumentationTestRunner {
     public TestSuite getAllTests(){
         InstrumentationTestSuite suite = new InstrumentationTestSuite(this);
         suite.addTestSuite(LogInControllerTest.class);
+        suite.addTestSuite(RecentUpdatesParserTest.class);
         return suite;
     }
 

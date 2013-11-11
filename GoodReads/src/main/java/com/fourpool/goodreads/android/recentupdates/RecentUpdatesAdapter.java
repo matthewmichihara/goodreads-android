@@ -61,7 +61,8 @@ public class RecentUpdatesAdapter extends ArrayAdapter<Update> {
         } else if (update.getType().equals("review")) {
             return TYPE_REVIEW;
         } else {
-            throw new RuntimeException("Unknown update type");
+            return TYPE_REVIEW;
+            //throw new RuntimeException("Unknown update type: %s", update.getType());
         }
     }
 
@@ -72,6 +73,7 @@ public class RecentUpdatesAdapter extends ArrayAdapter<Update> {
     static class ViewHolder {
         @InjectView(R.id.actor_image) ImageView actorImage;
         @InjectView(R.id.actor_name) TextView actorName;
+        @InjectView(R.id.book_image) ImageView bookImage;
 
         public ViewHolder(View v) {
             Views.inject(this, v);
