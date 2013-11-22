@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+  <Request>
+    <authentication>true</authentication>
+    <key><![CDATA[foo-key]]></key>
+    <method><![CDATA[home_friend_updates]]></method>
+  </Request>
+  <updates type="array">
+    <update type="readstatus">
+      <action_text><![CDATA[wants to read <a href="https://www.goodreads.com/review/show/1111111" only_path="false">Fast Food Nation: The Dark Side of the All-American Meal</a>]]></action_text>
+      <link>https://www.goodreads.com/read_statuses/000000000</link>
+      <image_url>https://foo.com/bar.jpg</image_url>
+      <actor>
+        <id type="integer">1111111</id>
+        <name>Stanley</name>
+        <image_url>https://d202m5krfqbpi5.cloudfront.net/users/22222222/1111111.jpg</image_url>
+        <link>https://www.goodreads.com/user/show/111111-stanley</link>
+      </actor>
+      <updated_at>Thu, 07 Nov 2013 18:39:33 -0800</updated_at>
+      <object>
+        <read_status>
+          <id type="integer">33333333</id>
+          <old_status nil="true"/>
+          <review_id type="integer">99999999</review_id>
+          <status>to-read</status>
+          <updated_at type="datetime">2013-11-08T02:39:33+00:00</updated_at>
+          <user_id type="integer">1111111</user_id>
+          <review>
+            <book-id type="integer">1097</book-id>
+            <comments-count type="integer">0</comments-count>
+            <created-at type="datetime">2013-11-08T02:39:33+00:00</created-at>
+            <hidden-flag type="boolean">false</hidden-flag>
+            <id type="integer">99999999</id>
+            <language-code type="integer" nil="true"/>
+            <last-comment-at type="datetime" nil="true"/>
+            <last-revision-at type="datetime">2013-11-08T02:39:33+00:00</last-revision-at>
+            <non-friends-rating-count type="integer">0</non-friends-rating-count>
+            <notes nil="true"/>
+            <rating type="integer">0</rating>
+            <ratings-count type="integer">0</ratings-count>
+            <ratings-sum type="integer">0</ratings-sum>
+            <read-at type="datetime" nil="true"/>
+            <read-count nil="true"/>
+            <read-status>to-read</read-status>
+            <recommendation nil="true"/>
+            <recommender-user-id1 type="integer">0</recommender-user-id1>
+            <recommender-user-name1 nil="true"/>
+            <review nil="true"/>
+            <sell-flag type="boolean">false</sell-flag>
+            <spoiler-flag type="boolean">false</spoiler-flag>
+            <started-at type="datetime" nil="true"/>
+            <updated-at type="datetime">2013-11-08T02:39:33+00:00</updated-at>
+            <user-id type="integer">7711250</user-id>
+            <weight type="integer">0</weight>
+            <work-id type="integer">11111</work-id>
+            <book>
+              <asin nil="true"/>
+              <author_id type="integer">380</author_id>
+              <author_id_updater_user_id type="integer">-47</author_id_updater_user_id>
+              <author_role nil="true"/>
+              <author_role_updater_user_id type="integer">1</author_role_updater_user_id>
+              <book_authors_count type="integer">0</book_authors_count>
+              <created_at type="datetime">2006-09-09T19:42:53+00:00</created_at>
+              <description>Fast food has hastened the malling of our landscape, widened the chasm between rich and poor, fueled an epidemic of obesity, and propelled American cultural imperialism abroad. That's a lengthy list of charges, but Eric Schlosser makes them stick with an artful mix of first-rate reportage, wry wit, and careful reasoning.
+
+                Schlosser's myth-shattering survey stretches from California's subdivisions, where the business was born, to the industrial corridor along the New Jersey Turnpike, where many of fast food's flavors are concocted. Along the way, he unearths a trove of fascinating, unsettling truths -- from the unholy alliance between fast food and Hollywood to the seismic changes the industry has wrought in food production, popular culture, and even real estate.</description>
+              <description_updater_user_id type="integer">-51</description_updater_user_id>
+              <edition_information nil="true"/>
+              <edition_information_updater_user_id type="integer" nil="true"/>
+              <format>Paperback</format>
+              <format_updater_user_id type="integer">-47</format_updater_user_id>
+              <id type="integer">1097</id>
+              <image_updater_user_id type="integer">-110</image_updater_user_id>
+              <image_uploaded_at type="datetime">2012-09-29T03:33:10+00:00</image_uploaded_at>
+              <isbn>0060838582</isbn>
+              <isbn13>9780060838584</isbn13>
+              <isbn13_updater_user_id type="integer">-47</isbn13_updater_user_id>
+              <isbn_updater_user_id type="integer">-47</isbn_updater_user_id>
+              <language_code>eng</language_code>
+              <language_updater_user_id type="integer">1406702</language_updater_user_id>
+              <num_pages type="integer">399</num_pages>
+              <num_pages_updater_user_id type="integer">1406702</num_pages_updater_user_id>
+              <publication_date_updater_user_id type="integer">-47</publication_date_updater_user_id>
+              <publication_day type="integer">5</publication_day>
+              <publication_month type="integer">7</publication_month>
+              <publication_year type="integer">2005</publication_year>
+              <publisher>Harper Perennial</publisher>
+              <publisher_updater_user_id type="integer">-47</publisher_updater_user_id>
+              <ratings_count type="integer">151643</ratings_count>
+              <ratings_sum type="integer">560564</ratings_sum>
+              <reviews_count type="integer">232274</reviews_count>
+              <s3_image_at type="datetime">2012-09-29T03:33:10+00:00</s3_image_at>
+              <sort_by_title>fast food nation: the dark side of the all-american meal</sort_by_title>
+              <source_url nil="true"/>
+              <text_reviews_count type="integer">3965</text_reviews_count>
+              <title>Fast Food Nation: The Dark Side of the All-American Meal</title>
+              <title_updater_user_id type="integer">934807</title_updater_user_id>
+              <updated_at type="datetime">2013-11-08T04:33:00+00:00</updated_at>
+              <url nil="true"/>
+              <url_updater_user_id type="integer" nil="true"/>
+              <work_id type="integer">2207547</work_id>
+              <author>
+                <about>Eric Schlosser is an award-winning American journalist and author known for investigative journalism. A number of critics have compared his work to that of Upton Sinclair.
+
+                  Schlosser was born in Manhattan, New York; he spent his childhood there and in Los Angeles, California. His father, Herbert Schlosser, a former Wall Street lawyer who turned to broadcasting later in his career, eventually became the President of NBC in 1974. Schlosser studied American History at Princeton University and earned a graduate degree in British Imperial History from Oxford.
+
+                  Schlosser lives in California, and is working on a book about the prison system. He is married to Shauna Redford, daughter of Robert Redford, and has two children.</about>
+                <author_program_at type="datetime" nil="true"/>
+                <best_book_id type="integer">1097</best_book_id>
+                <books_count type="integer">81</books_count>
+                <born_at type="datetime">1959-08-17T00:00:00+00:00</born_at>
+                <country_code>US</country_code>
+                <created_at type="datetime">2006-08-31T21:28:48+00:00</created_at>
+                <died_at type="datetime" nil="true"/>
+                <fanships_count type="integer">192</fanships_count>
+                <gender>M</gender>
+                <genre1>Nonfiction</genre1>
+                <genre2></genre2>
+                <genre3></genre3>
+                <hometown>Manhattan, New York </hometown>
+                <id type="integer">380</id>
+                <image_copyright>http://www.powells.com/ink/schlosser.html</image_copyright>
+                <image_uploaded_at type="datetime">2010-07-20T14:45:56+00:00</image_uploaded_at>
+                <influences></influences>
+                <name>Eric Schlosser</name>
+                <postal_code nil="true"/>
+                <rating_dist>5:22494|4:32168|3:23434|2:7064|1:5456|total:90616</rating_dist>
+                <ratings_count type="integer">161451</ratings_count>
+                <ratings_sum type="integer">597490</ratings_sum>
+                <reviews_count type="integer">250295</reviews_count>
+                <s3_image_at type="datetime">2010-07-20T14:45:59+00:00</s3_image_at>
+                <searched_for_at type="datetime">2007-01-06T21:48:26+00:00</searched_for_at>
+                <text_reviews_count type="integer">5256</text_reviews_count>
+                <updated_at type="datetime">2013-11-08T04:33:00+00:00</updated_at>
+                <uploader_user_id type="integer">934807</uploader_user_id>
+                <url></url>
+                <user_id type="integer" nil="true"/>
+                <works_count type="integer">16</works_count>
+              </author>
+            </book>
+          </review>
+        </read_status>
+
+      </object>
+    </update>
+
+    <update type="review">
+      <action_text><![CDATA[gave 4 stars to <a href="https://www.goodreads.com/book/show/116192.How_to_Read_a_Financial_Report">How to Read a Financial Report: Wringing Vital Signs Out of the Numbers (Paperback)</a> by <a href="https://www.goodreads.com/author/show/281445.John_A_Tracy">John A. Tracy</a>]]></action_text>
+      <link>https://www.goodreads.com/review/show/11111111</link>
+      <image_url>https://d202m5krfqbpi5.cloudfront.net/books/11111111/foo.jpg</image_url>
+      <actor>
+        <id type="integer">7711250</id>
+        <name>Eric</name>
+        <image_url>https://d202m5krfqbpi5.cloudfront.net/users/1111111/111111.jpg</image_url>
+        <link>https://www.goodreads.com/user/show/1111111-eric</link>
+      </actor>
+      <updated_at>Fri, 01 Nov 2013 22:02:34 -0700</updated_at>
+      <action type="rating">
+        <rating>4</rating>
+      </action>
+      <object>
+        <book>
+          <id>116192</id>
+          <title><![CDATA[How to Read a Financial Report: Wringing Vital Signs Out of the Numbers]]></title>
+          <link>https://www.goodreads.com/book/show/116192.How_to_Read_a_Financial_Report</link>
+          <authors>
+            <author>
+              <id>281445</id>
+              <name>John A. Tracy</name>
+              <image_url><![CDATA[https://www.goodreads.com/assets/nophoto/user/u_200x266-312f5971f6b4a667fe0e83c852b56858.png]]></image_url>
+              <small_image_url><![CDATA[https://www.goodreads.com/assets/nophoto/user/u_50x66-d9f6a4a5badfda0f69e70cc94d962125.png]]></small_image_url>
+              <link><![CDATA[https://www.goodreads.com/author/show/281445.John_A_Tracy]]></link>
+              <average_rating>3.75</average_rating>
+              <ratings_count>587</ratings_count>
+              <text_reviews_count>31</text_reviews_count>
+            </author>
+          </authors>
+        </book>
+      </object>
+      <body><![CDATA[Tracy states that the task of a business manager is threefold: earning profit, keeping the company's financial condition in order, and bringing in cash flow. He details what financial statements say (and what they don't) about the performance of the manager.]]></body>
+    </update>
+
+    <update type="friend">
+      <action_text><![CDATA[is now friends with Peter Parker]]></action_text>
+      <link>https://www.goodreads.com/user/show/0000-peter-parker</link>
+      <image_url>https://d202m5krfqbpi5.cloudfront.net/users/1111111/111.jpg</image_url>
+      <actor>
+        <id type="integer">111111</id>
+        <name>James Franco</name>
+        <image_url>https://www.goodreads.com/assets/nophoto/user/m_50x66-abc123.png</image_url>
+        <link>https://www.goodreads.com/user/show/1111-james-franco</link>
+      </actor>
+      <updated_at>Mon, 28 Oct 2013 17:24:17 -0700</updated_at>
+    </update>
+
+    <update type="recommendation">
+      <action_text><![CDATA[recommended <strong>E-Squared</strong> to Barrack Obama]]></action_text>
+      <link>https://www.goodreads.com/recommendations/8982447</link>
+      <image_url>https://d202m5krfqbpi5.cloudfront.net/books/22222/11111.jpg</image_url>
+      <actor>
+        <id type="integer">11111</id>
+        <name>George Bush</name>
+        <image_url>https://d202m5krfqbpi5.cloudfront.net/users/11111/11111.jpg</image_url>
+        <link>https://www.goodreads.com/user/show/11111-george-bush</link>
+      </actor>
+      <updated_at>Thu, 10 Oct 2013 17:07:45 -0700</updated_at>
+    </update>
+
+    <update type="giveawayrequest">
+      <action_text><![CDATA[George Washington has entered a giveaway]]></action_text>
+      <link>https://www.goodreads.com/giveaway/show/70252-white-fire</link>
+      <image_url>https://d202m5krfqbpi5.cloudfront.net/books/11111/22222.jpg</image_url>
+      <actor>
+        <id type="integer">11111</id>
+        <name>George Washington</name>
+        <image_url>https://d202m5krfqbpi5.cloudfront.net/users/11111/22222.jpg</image_url>
+        <link>https://www.goodreads.com/user/show/1111-george-washington</link>
+      </actor>
+      <updated_at>Mon, 04 Nov 2013 13:53:15 -0800</updated_at>
+      <object>
+        <giveaway_request>
+          <address>123 Foo St/address>
+          <address_key>123 foost</address_key>
+          <address_other></address_other>
+          <city>Bar</city>
+          <comment nil="true"/>
+          <country_code>US</country_code>
+          <created_at type="datetime">2013-11-04T21:53:14+00:00</created_at>
+          <first_name>George</first_name>
+          <giveaway_id type="integer">111</giveaway_id>
+          <id type="integer">11111</id>
+          <last_name>Washington</last_name>
+          <never_received_at type="datetime" nil="true"/>
+          <postal_code>11111</postal_code>
+          <received_at type="datetime" nil="true"/>
+          <state_code>HI</state_code>
+          <updated_at type="datetime">2013-11-04T21:53:14+00:00</updated_at>
+          <user_id type="integer">11111</user_id>
+          <winner type="boolean">false</winner>
+          <giveaway_id type="integer">22222</giveaway_id>
+          <giveaway>
+            <adults_only_flag type="boolean">false</adults_only_flag>
+            <approved_at type="datetime">2013-10-28T16:50:20+00:00</approved_at>
+            <book_count type="integer">10</book_count>
+            <book_id type="integer">17159011</book_id>
+            <comment>http://www.hachettebookgroup.com/publishers/grand-central-publishing/
+
+              Jane Lee
+              Online Publicity
+              Grand Central Publishing
+              237 Park Avenue
+              New York, NY 10017</comment>
+            <country_codes>US</country_codes>
+            <created_at type="datetime">2013-10-28T15:11:34+00:00</created_at>
+            <description>Enter to win an advance reading copy!
+              No P.O. boxes
+
+              -
+
+              Past and present collide in Preston and Child's most thrilling novel ever . . .
+
+              WHITE FIRE
+
+              Special Agent Pendergast arrives at an exclusive Colorado ski resort to rescue his protégée, Corrie Swanson, from serious trouble with the law. His sudden appearance coincides with the first attack of a murderous arsonist who--with brutal precision--begins burning down multimillion-dollar mansions with the families locked inside. After springing Corrie from jail, Pendergast learns she made a discovery while examining the bones of several miners who were killed 150 years earlier by a rogue grizzly bear. Her finding is so astonishing that it, even more than the arsonist, threatens the resort's very existence.
+
+              Drawn deeper into the investigation, Pendergast uncovers a mysterious connection between the dead miners and a fabled, long-lost Sherlock Holmes story--one that might just offer the key to the modern day killings as well.
+
+              Now, with the ski resort snowed in and under savage attack--and Corrie's life suddenly in grave danger--Pendergast must solve the enigma of the past before the town of the present goes up in flames.</description>
+            <email_verified_at type="datetime">2013-10-28T15:11:56+00:00</email_verified_at>
+            <end_at type="datetime">2013-11-11T08:00:00+00:00</end_at>
+            <giveaway_requests_count type="integer">1111</giveaway_requests_count>
+            <id type="integer">11111</id>
+            <publisher_url>http://www.hachettebookgroup.com/publishers/grand-central-publishing/</publisher_url>
+            <release_at type="datetime">2013-11-12T08:00:00+00:00</release_at>
+            <sent_at type="datetime" nil="true"/>
+            <start_at type="datetime">2013-10-28T07:00:00+00:00</start_at>
+            <updated_at type="datetime">2013-10-28T16:50:20+00:00</updated_at>
+            <user_id type="integer">12773133</user_id>
+            <winners_chosen type="boolean">false</winners_chosen>
+            <work_id type="integer">24152432</work_id>
+          </giveaway>
+        </giveaway_request>
+
+      </object>
+      <body><![CDATA[10 copies available, ends on November 11, 2013]]></body>
+    </update>
+    
+  </updates>
+
+</GoodreadsResponse>
