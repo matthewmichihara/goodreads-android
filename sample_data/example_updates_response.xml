@@ -219,7 +219,7 @@
       <updated_at>Mon, 04 Nov 2013 13:53:15 -0800</updated_at>
       <object>
         <giveaway_request>
-          <address>123 Foo St/address>
+          <address>123 Foo St</address>
           <address_key>123 foost</address_key>
           <address_other></address_other>
           <city>Bar</city>
