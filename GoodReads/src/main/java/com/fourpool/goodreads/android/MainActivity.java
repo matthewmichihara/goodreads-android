@@ -16,6 +16,7 @@ import com.fourpool.goodreads.android.event.SessionCreatedEvent;
 import com.fourpool.goodreads.android.login.LogInFragment;
 import com.fourpool.goodreads.android.model.SessionStore;
 import com.fourpool.goodreads.android.recentupdates.RecentUpdatesFragment;
+import com.fourpool.goodreads.android.shelves.ShelvesFragment;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
@@ -95,7 +96,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 title = getString(R.string.title_updates);
                 break;
             case 1:
-                displayFragment(new RecentUpdatesFragment());
+                displayFragment(new ShelvesFragment());
                 title = getString(R.string.title_my_shelves);
                 break;
             case 2:

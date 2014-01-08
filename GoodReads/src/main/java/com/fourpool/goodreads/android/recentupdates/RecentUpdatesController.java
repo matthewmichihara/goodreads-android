@@ -1,14 +1,13 @@
 package com.fourpool.goodreads.android.recentupdates;
 
-import android.os.Handler;
-import android.os.Looper;
-
 import com.fourpool.goodreads.android.model.GoodReadsService;
 import com.fourpool.goodreads.android.model.RecentUpdatesResponse;
-import com.fourpool.goodreads.android.model.Update;
 
 import javax.inject.Inject;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 import timber.log.Timber;
 
 public class RecentUpdatesController {
@@ -19,22 +18,17 @@ public class RecentUpdatesController {
     }
 
     public void onCreateView(final RecentUpdatesDisplay recentUpdatesDisplay) {
-        new Thread() {
-            @Override public void run() {
-                final RecentUpdatesResponse response = goodReadsService.getRecentUpdates();
-                Timber.d(response.getAuthentication());
-
-                for (Update update : response.getUpdates()) {
-                    Timber.d(update.getImageUrl());
+        goodReadsService.getRecentUpdates(new Callback<RecentUpdatesResponse>() {
+            @Override public void success(RecentUpdatesResponse recentUpdatesResponse, Response response) {
+                if (recentUpdatesDisplay == null) {
+                    return;
                 }
-
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-                    @Override public void run() {
-                        recentUpdatesDisplay.displayUpdates(response.getUpdates());
-                    }
-                });
+                recentUpdatesDisplay.displayUpdates(recentUpdatesResponse.getUpdates());
             }
-        }.start();
+
+            @Override public void failure(RetrofitError retrofitError) {
+                Timber.e(retrofitError, "Failed getting updates");
+            }
+        });
     }
 }

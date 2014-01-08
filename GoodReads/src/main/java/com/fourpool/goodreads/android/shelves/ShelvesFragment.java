@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.fourpool.goodreads.android.GoodReadsApplication;
 import com.fourpool.goodreads.android.R;
+import com.fourpool.goodreads.android.model.Shelf;
 
 import java.util.List;
 
@@ -39,6 +40,6 @@ public class ShelvesFragment extends Fragment implements ShelvesDisplay {
     }
 
     @Override public void display(List<Shelf> shelves) {
-        // shelvesList.setAdapter...
+        shelvesList.setAdapter(new ShelvesAdapter(getActivity(), shelves));
     }
 }

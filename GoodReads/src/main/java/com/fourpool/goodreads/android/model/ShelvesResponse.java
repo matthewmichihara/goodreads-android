@@ -8,24 +8,24 @@ import org.simpleframework.xml.Root;
 import java.util.List;
 
 @Root(strict = false)
-public class RecentUpdatesResponse {
+public class ShelvesResponse {
     @Element
     @Path("Request[1]")
     private final String authentication;
 
     @ElementList
-    private final List<Update> updates;
+    private final List<Shelf> shelves;
 
-    public RecentUpdatesResponse(@Element(name = "authentication") String authentication, @ElementList(name = "updates") List<Update> updates) {
+    public ShelvesResponse(@Element(name = "authentication") String authentication, @ElementList(name="shelves") List<Shelf> shelves) {
         this.authentication = authentication;
-        this.updates = updates;
+        this.shelves = shelves;
     }
 
     public String getAuthentication() {
         return authentication;
     }
 
-    public List<Update> getUpdates() {
-        return updates;
+    public List<Shelf> getShelves() {
+        return shelves;
     }
 }

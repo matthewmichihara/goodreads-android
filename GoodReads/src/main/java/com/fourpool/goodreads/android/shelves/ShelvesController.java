@@ -1,10 +1,15 @@
 package com.fourpool.goodreads.android.shelves;
 
-import com.fourpool.goodreads.android.event.ShelvesFetchedEvent;
+import com.fourpool.goodreads.android.SecretConstants;
 import com.fourpool.goodreads.android.model.GoodReadsService;
-import com.squareup.otto.Subscribe;
+import com.fourpool.goodreads.android.model.ShelvesResponse;
 
 import javax.inject.Inject;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+import timber.log.Timber;
 
 public class ShelvesController {
     private final GoodReadsService goodReadsService;
@@ -14,13 +19,21 @@ public class ShelvesController {
         this.goodReadsService = goodReadsService;
     }
 
-    public void onCreateView(ShelvesDisplay shelvesDisplay) {
+    public void onCreateView(final ShelvesDisplay shelvesDisplay) {
         this.shelvesDisplay = shelvesDisplay;
-    }
 
-    @Subscribe public void onShelvesFetched(ShelvesFetchedEvent event) {
-        if (shelvesDisplay != null) {
-            shelvesDisplay.display(event.getShelves());
-        }
+        goodReadsService.getShelves(SecretConstants.CONSUMER_KEY, new Callback<ShelvesResponse>() {
+            @Override public void success(ShelvesResponse shelvesResponse, Response response) {
+                if (shelvesDisplay == null) {
+                    return;
+                }
+
+                shelvesDisplay.display(shelvesResponse.getShelves());
+            }
+
+            @Override public void failure(RetrofitError retrofitError) {
+                Timber.e(retrofitError, "Failed getting shelves");
+            }
+        });
     }
 }
