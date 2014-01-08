@@ -55,6 +55,8 @@ public class RecentUpdatesAdapter extends ArrayAdapter<Update> {
                 case TYPE_REVIEW:
                     convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_update_read_status, parent, false);
                     break;
+                default:
+                    throw new RuntimeException("Shouldn't get here");
             }
 
             holder = new ViewHolder(convertView);

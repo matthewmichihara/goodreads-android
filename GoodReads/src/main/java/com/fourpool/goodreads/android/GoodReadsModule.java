@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 
 import com.fourpool.goodreads.android.login.LogInFragment;
 import com.fourpool.goodreads.android.recentupdates.RecentUpdatesFragment;
+import com.fourpool.goodreads.android.shelves.ShelvesFragment;
 import com.squareup.otto.Bus;
 
 import javax.inject.Named;
@@ -14,7 +15,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-@Module(injects = {MainActivity.class, LogInFragment.class, RecentUpdatesFragment.class})
+@Module(injects = {MainActivity.class, LogInFragment.class, RecentUpdatesFragment.class, ShelvesFragment.class})
 public class GoodReadsModule {
     private final GoodReadsApplication application;
 

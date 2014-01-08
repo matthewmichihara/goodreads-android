@@ -26,7 +26,7 @@ public class RecentUpdatesController {
         this.sessionStore = sessionStore;
     }
 
-    public void onCreateView(final RecentUpdatesFragment recentUpdatesFragment) {
+    public void onCreateView(final RecentUpdatesDisplay recentUpdatesDisplay) {
         new Thread() {
             @Override public void run() {
                 OAuthConsumer consumer = sessionStore.getSession().getConsumer();
@@ -51,7 +51,7 @@ public class RecentUpdatesController {
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override public void run() {
-                        recentUpdatesFragment.displayUpdates(response.getUpdates());
+                        recentUpdatesDisplay.displayUpdates(response.getUpdates());
                     }
                 });
             }
