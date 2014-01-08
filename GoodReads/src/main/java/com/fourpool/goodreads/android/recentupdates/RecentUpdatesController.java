@@ -1,21 +1,22 @@
 package com.fourpool.goodreads.android.recentupdates;
 
+import android.os.Handler;
+import android.os.Looper;
+
+import com.fourpool.goodreads.android.model.RecentUpdatesResponse;
 import com.fourpool.goodreads.android.model.SessionStore;
 import com.fourpool.goodreads.android.model.Update;
+import com.fourpool.goodreads.android.model.GoodReadsService;
+import com.fourpool.goodreads.android.retrofit.RetrofitHttpOAuthConsumer;
+import com.fourpool.goodreads.android.retrofit.SigningOkClient;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
+import org.simpleframework.xml.core.Persister;
 
 import javax.inject.Inject;
 
 import oauth.signpost.OAuthConsumer;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscription;
-import rx.android.concurrency.AndroidSchedulers;
-import rx.concurrency.Schedulers;
-import rx.subscriptions.Subscriptions;
+import retrofit.RestAdapter;
+import retrofit.converter.SimpleXMLConverter;
 import timber.log.Timber;
 
 public class RecentUpdatesController {
@@ -26,43 +27,34 @@ public class RecentUpdatesController {
     }
 
     public void onCreateView(final RecentUpdatesFragment recentUpdatesFragment) {
-        Observable recentUpdatesObservable = Observable.create(new Observable.OnSubscribeFunc() {
-            @Override public Subscription onSubscribe(Observer observer) {
-                try {
-                    URL url = new URL("https://www.goodreads.com/updates/friends.xml");
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        new Thread() {
+            @Override public void run() {
+                OAuthConsumer consumer = sessionStore.getSession().getConsumer();
 
-                    OAuthConsumer consumer = sessionStore.getSession().getConsumer();
-                    consumer.sign(connection);
-                    connection.connect();
+                RetrofitHttpOAuthConsumer c = new RetrofitHttpOAuthConsumer(consumer.getConsumerKey(), consumer.getConsumerSecret());
+                c.setTokenWithSecret(consumer.getToken(), consumer.getTokenSecret());
+                RestAdapter restAdapter = new RestAdapter.Builder()
+                        .setServer("https://www.goodreads.com")
+                        .setConverter(new SimpleXMLConverter(new Persister()))
+                        .setClient(new SigningOkClient(c))
+                        .build();
 
-                    List<Update> updates = new RecentUpdatesParser().parse(connection.getInputStream());
+                GoodReadsService service = restAdapter.create(GoodReadsService.class);
 
-                    observer.onNext(updates);
-                    observer.onCompleted();
-                } catch (Exception e) {
-                    observer.onError(e);
+                final RecentUpdatesResponse response = service.getRecentUpdates();
+                Timber.d(response.getAuthentication());
+
+                for (Update update : response.getUpdates()) {
+                    Timber.d(update.getImageUrl());
                 }
 
-                return Subscriptions.empty();
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override public void run() {
+                        recentUpdatesFragment.displayUpdates(response.getUpdates());
+                    }
+                });
             }
-        });
-
-        Observer<List<Update>> recentUpdatesObserver = new Observer<List<Update>>() {
-            @Override public void onNext(List<Update> updates) {
-                Timber.d("onNext called");
-                recentUpdatesFragment.displayUpdates(updates);
-            }
-
-            @Override public void onCompleted() {
-                Timber.d("onComplete called");
-            }
-
-            @Override public void onError(Throwable throwable) {
-                Timber.e(throwable, "onError called");
-            }
-        };
-
-        recentUpdatesObservable.subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(recentUpdatesObserver);
+        }.start();
     }
 }
