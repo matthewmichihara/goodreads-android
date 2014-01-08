@@ -29,6 +29,21 @@ public class RecentUpdatesAdapter extends ArrayAdapter<Update> {
     @Override public View getView(int position, View convertView, ViewGroup parent) {
         Update update = getItem(position);
 
+        Actor actor = update.getActor();
+        String titleText = "";
+
+        if (update.getType().equals(Update.TYPE_READ_STATUS)) {
+            titleText = actor.getName() + " wants to read something";
+        } else if (update.getType().equals(Update.TYPE_REVIEW)) {
+            titleText = actor.getName() + " rated something blah";
+        } else if (update.getType().equals(Update.TYPE_FRIEND)) {
+            titleText = actor.getName() + " is friends with pete";
+        } else if (update.getType().equals(Update.TYPE_RECOMMENDATION)) {
+            titleText = actor.getName() + " recommended foo to bar";
+        } else if (update.getType().equals(Update.TYPE_GIVEAWAY_REQUEST)) {
+            titleText = actor.getName() + " has entered a giveaway";
+        }
+
         ViewHolder holder;
         if (convertView != null) {
             holder = (ViewHolder) convertView.getTag();
@@ -46,9 +61,8 @@ public class RecentUpdatesAdapter extends ArrayAdapter<Update> {
             convertView.setTag(holder);
         }
 
-        Actor actor = update.getActor();
         Picasso.with(getContext()).load(actor.getImageUrl()).into(holder.actorImage);
-        holder.actorName.setText(actor.getName());
+        holder.actorName.setText(titleText);
 
         return convertView;
     }
@@ -56,9 +70,9 @@ public class RecentUpdatesAdapter extends ArrayAdapter<Update> {
     @Override public int getItemViewType(int position) {
         Update update = getItem(position);
 
-        if (update.getType().equals("readstatus")) {
+        if (update.getType().equals(Update.TYPE_READ_STATUS)) {
             return TYPE_READ_STATUS;
-        } else if (update.getType().equals("review")) {
+        } else if (update.getType().equals(Update.TYPE_REVIEW)) {
             return TYPE_REVIEW;
         } else {
             return TYPE_REVIEW;
