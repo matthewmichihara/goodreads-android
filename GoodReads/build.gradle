@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.1'
+        classpath 'com.android.tools.build:gradle:0.9.+'
     }
 }
 apply plugin: 'android'
@@ -47,9 +47,9 @@ dependencies {
         exclude module: 'xpp3'
     }
 
-    instrumentTestCompile 'org.mockito:mockito-all:1.9.5'
-    instrumentTestCompile 'com.google.dexmaker:dexmaker:1.0'
-    instrumentTestCompile('com.google.dexmaker:dexmaker-mockito:1.0') {
+    androidTestCompile 'org.mockito:mockito-all:1.9.5'
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.0'
+    androidTestCompile('com.google.dexmaker:dexmaker-mockito:1.0') {
         // Shit breaks without this.
         // See http://forums.gradle.org/gradle/topics/how_to_exclude_transitive_dependency
         exclude group: 'org.hamcrest', module: 'hamcrest-core'

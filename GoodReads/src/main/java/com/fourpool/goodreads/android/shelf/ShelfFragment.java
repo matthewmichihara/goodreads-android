@@ -1,4 +1,5 @@
-package com.fourpool.goodreads.android.shelves;
+package com.fourpool.goodreads.android.shelf;
+
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -6,12 +7,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.fourpool.goodreads.android.GoodReadsApplication;
 import com.fourpool.goodreads.android.R;
 import com.fourpool.goodreads.android.model.Shelf;
+import com.fourpool.goodreads.android.shelves.ShelvesAdapter;
 
 import java.util.List;
 
@@ -20,8 +21,8 @@ import javax.inject.Inject;
 import butterknife.InjectView;
 import butterknife.Views;
 
-public class ShelvesFragment extends Fragment implements ShelvesDisplay {
-    @Inject ShelvesController shelvesController;
+public class ShelfFragment extends Fragment implements ShelfDisplay {
+    @Inject ShelfController shelfController;
 
     @InjectView(R.id.shelves) ListView shelvesList;
 
@@ -35,13 +36,7 @@ public class ShelvesFragment extends Fragment implements ShelvesDisplay {
         View view = inflater.inflate(R.layout.fragment_shelves, container, false);
         Views.inject(this, view);
 
-        shelvesController.onCreateView(this);
-
-        shelvesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Shelf shelf = (Shelf) parent.getItemAtPosition(position);
-            }
-        });
+        shelfController.onCreateView(this);
 
         return view;
     }
